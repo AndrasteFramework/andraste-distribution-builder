@@ -16,7 +16,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag mefisto94/andraste-distribution-builder:$(date +%s)
+      run: docker build . --file Dockerfile --tag mefisto94/andraste-distribution-builder:${GITHUB_SHA}
 
   build-tag:
     # This job runs only on tag pushes
