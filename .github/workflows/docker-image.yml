@@ -24,14 +24,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: Set Docker tag name
-      run: echo "TAG_NAME=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
     - name: Log in to DockerHub
       uses: docker/login-action@v3
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: Build Docker image for tag
-      run: docker build . --file Dockerfile --tag mefisto94/andraste-distribution-builder:${TAG_NAME}
+      run: docker build . --file Dockerfile --tag mefisto94/andraste-distribution-builder:${{ github.ref_name }}
     - name: Push Docker image for tag
-      run: docker push mefisto94/andraste-distribution-builder:${TAG_NAME}
+      run: docker push mefisto94/andraste-distribution-builder:${{ github.ref_name }}
