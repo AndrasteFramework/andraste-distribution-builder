@@ -49,7 +49,7 @@ If you have built the Docker image (see Dockerfile), you can run the builder wit
 ```bash
 docker run --rm -it \
   -v "$PWD/dist:/app/dist" \
-  andraste-distribution-builder \
+  mefisto94:andraste-distribution-builder \
   -vv create-bundle --version 1.2.3
 ```
 
