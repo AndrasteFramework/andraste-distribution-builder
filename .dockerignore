@@ -1,0 +1,10 @@
+.dockerignore
+target
+.git
+.gitignore
+Dockerfile
+*.md
+
+# Folders produced by the executable itself
+dist/
+out/
